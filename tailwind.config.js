@@ -13,7 +13,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 'primary-50': 'rgb(var(--primary-50))',
@@ -40,6 +40,9 @@ export default {
                 'surface-900': 'rgb(var(--surface-900))',
                 'surface-950': 'rgb(var(--surface-950))',
             },
+            backgroundImage: {
+                'hero-banner': "url('assets/images/banner.jpg')",
+            }
         },
     },
 

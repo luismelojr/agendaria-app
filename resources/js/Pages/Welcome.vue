@@ -1,10 +1,11 @@
 <script setup>
-import Button from 'primevue/button'
+import Home from "@/modules/landpage/screens/Home/Home.vue";
+import Hero from "@/modules/landpage/screens/Hero/Hero.vue";
+import Content from "@/modules/landpage/screens/Content/Content.vue";
 </script>
 
 <template>
-    <div>
-        <h1 class="text-red-500">Hello Worlds</h1>
-        <Button label="Teste" />
-    </div>
+    <Home />
+    <Hero />
+    <Content />
 </template>
