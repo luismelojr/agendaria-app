@@ -6,6 +6,8 @@ import Content from "@/modules/landpage/screens/Content/Content.vue";
 
 <template>
     <Home />
-    <Hero />
-    <Content />
+    <main>
+        <Hero />
+        <Content />
+    </main>
 </template>
