@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Professionals;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Professionals\RegisterRequest;
+use App\Models\User;
 use App\Services\Professionals\AuthService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -39,7 +40,18 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
+        $plan = $request->plan ? $request->plan == 'premium' ? 'premium' : 'basic' : 'basic';
+        /** @var User $user */
         $user = $this->service->register($request->all());
+        $user->createOrGetStripeCustomer();
+
+        if ($plan == 'premium') {
+            return Inertia::location($user->newSubscription('default', config('productstripe.price_id'))
+                ->checkout()
+                ->redirect());
+        }
+
+
         return redirect()->route('professionals.login.show')->toast('Conta criada com sucesso! Faça login para continuar.');
     }
 }
