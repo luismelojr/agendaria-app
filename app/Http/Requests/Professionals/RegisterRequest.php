@@ -27,6 +27,7 @@ class RegisterRequest extends FormRequest
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['required', 'string', 'max:11', 'min:11', 'unique:users,phone'],
             'date_of_birth' => ['required', 'date'],
+            'plan' => ['required', 'string', 'in:basic,premium'],
         ];
     }
 }

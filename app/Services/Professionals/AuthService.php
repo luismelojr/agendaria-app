@@ -3,6 +3,8 @@
 namespace App\Services\Professionals;
 
 use App\Models\User;
+use App\Notifications\WelcomeProfessionalsNotification;
+use Illuminate\Support\Facades\DB;
 
 class AuthService
 {
@@ -12,6 +14,14 @@ class AuthService
 
     public function register(array $data)
     {
-        dd($data);
+        try {
+            DB::beginTransaction();
+            $user = $this->model->create($data);
+            $user->notify(new WelcomeProfessionalsNotification($user));
+            DB::commit();
+            return $user;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

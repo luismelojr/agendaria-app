@@ -1,5 +1,6 @@
 <script setup>
 import Logo from '@/modules/landpage/components/Logo/Logo.vue'
+import {Link} from '@inertiajs/vue3'
 </script>
 
 <template>
@@ -113,7 +114,7 @@ import Logo from '@/modules/landpage/components/Logo/Logo.vue'
                         <!-- Payment frequency, update based on frequency toggle state -->
                         <span class="text-sm font-semibold leading-6 text-gray-300">/mês</span>
                     </p>
-                    <a href="#" aria-describedby="tier-freelancer" class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white">Contratar plano</a>
+                    <Link :href="route('professionals.register.show')" aria-describedby="tier-freelancer" class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white">Contratar plano</Link>
                     <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10">
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -147,7 +148,7 @@ import Logo from '@/modules/landpage/components/Logo/Logo.vue'
                         <!-- Payment frequency, update based on frequency toggle state -->
                         <span class="text-sm font-semibold leading-6 text-gray-300">/mês</span>
                     </p>
-                    <a href="#" aria-describedby="tier-startup" class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500">Contratar plano</a>
+                    <Link :href="route('professionals.register.show', {plan: 'premium'})" aria-describedby="tier-startup" class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500">Contratar plano</Link>
                     <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10">
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

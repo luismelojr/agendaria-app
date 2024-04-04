@@ -3,6 +3,10 @@
     import {useForm} from "@inertiajs/vue3";
     import {Link} from "@inertiajs/vue3";
 
+    const props = defineProps({
+        plan: String
+    })
+
     defineOptions({
         layout: AuthProfessionalsLayout,
     })
@@ -14,6 +18,7 @@
         password_confirmation: '',
         phone: '',
         date_of_birth: '',
+        plan: props.plan,
     })
 
     function handleSubmit() {
