@@ -2,6 +2,7 @@ import './bootstrap';
 import '../css/app.css';
 import 'primeicons/primeicons.css'
 import PrimeVue from 'primevue/config';
+import ToastService from 'primevue/toastservice';
 import Lara from '@/UI/Presets/lara'
 
 import { createApp, h } from 'vue';
@@ -22,6 +23,7 @@ createInertiaApp({
                 unstyled: true,
                 pt: Lara
             })
+            .use(ToastService)
             .mount(el);
     },
     progress: {

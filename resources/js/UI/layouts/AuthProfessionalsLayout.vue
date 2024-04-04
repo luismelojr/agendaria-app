@@ -2,6 +2,7 @@
 
 import IconProfessionalsAuth from "@/UI/components/icons/IconProfessionalsAuth.vue";
 import Logo from "@/modules/landpage/components/Logo/Logo.vue";
+import Toast from "@/UI/components/toasts/Toast.vue";
 import {Link} from "@inertiajs/vue3";
 </script>
 
@@ -38,6 +39,7 @@ import {Link} from "@inertiajs/vue3";
             <div class="w-2 h-2 bg-white/10 absolute bottom-24 left-14"></div>
         </div>
     </div>
+    <Toast />
 </template>
 
 <style scoped>
