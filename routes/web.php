@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Professionals\AuthController;
+use App\Http\Controllers\Professionals\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -8,15 +9,14 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
-Route::get('teste', function () {
-    return redirect()->route('professionals.register.show')->toast('Testando tudo', 'error');
-})->name('teste');
 
-Route::prefix('professionals')->name('professionals.')->group(function () {
-    Route::get('login', [AuthController::class, 'loginPage'])->name('login.show');
-    Route::post('login', [AuthController::class, 'login'])->name('login.store');
-    Route::get('register', [AuthController::class, 'registerPage'])->name('register.show');
-    Route::post('register', [AuthController::class, 'register'])->name('register.store');
+Route::middleware('guest')->prefix('professionals')->group(function () {
+    Route::get('login', [AuthController::class, 'loginPage'])->name('login');
+    Route::post('login', [AuthController::class, 'login'])->name('professionals.login.store');
+    Route::get('register', [AuthController::class, 'registerPage'])->name('professionals.register.show');
+    Route::post('register', [AuthController::class, 'register'])->name('professionals.register.store');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware('auth')->prefix('dashboard')->group(function () {
+    Route::get('/', DashboardController::class)->name('dashboard');
+});

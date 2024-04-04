@@ -38,6 +38,7 @@ function handleSubmit() {
                         aria-describedby="password-help"
                         :invalid="!!form.errors.password"
                         toggle-mask
+                        :feedback="false"
                         promptLabel="Escolha uma senha segura"
                         weakLabel="Fraca"
                         mediumLabel="Média"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Professionals;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Professionals\RegisterRequest;
 use App\Models\User;
 use App\Services\Professionals\AuthService;
@@ -20,14 +21,13 @@ class AuthController extends Controller
         return Inertia::render('Professionals/Auth/Login');
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $request->authenticate();
 
-        dd($request->all());
+        $request->session()->regenerate();
+
+        return redirect()->intended(route('dashboard', absolute: false));
     }
 
     public function registerPage(Request $request)

@@ -16,7 +16,7 @@ const openMenu = ref(false)
             <Link :href="route('home')" class="text-gray-500 hover:underline">
                 Entrar como cliente
             </Link>
-            <Link :href="route('professionals.login.show')">
+            <Link :href="route('login')">
                 <Button label="Entrar como profissional" size="small" icon="pi pi-arrow-right" icon-pos="right"/>
             </Link>
         </nav>
