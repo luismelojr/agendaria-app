@@ -1,5 +1,9 @@
 <script setup>
+    import DashboardLayout from "@/UI/layouts/DashboardLayout.vue";
 
+    defineOptions({
+        layout: DashboardLayout
+    })
 </script>
 
 <template>
