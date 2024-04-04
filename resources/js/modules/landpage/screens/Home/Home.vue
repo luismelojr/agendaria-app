@@ -16,7 +16,7 @@ const openMenu = ref(false)
             <Link :href="route('home')" class="text-gray-500 hover:underline">
                 Entrar como cliente
             </Link>
-            <Link :href="route('home')">
+            <Link :href="route('professionals.login.show')">
                 <Button label="Entrar como profissional" size="small" icon="pi pi-arrow-right" icon-pos="right"/>
             </Link>
         </nav>
@@ -30,7 +30,7 @@ const openMenu = ref(false)
                     </Link>
                 </li>
                 <li class="w-full">
-                    <Link href="/" class="text-gray-500 rounded-md hover:bg-primary-100/10 hover:text-primary-500 w-full flex transition-all items-center gap-4 py-4 px-2 group">
+                    <Link :href="route('professionals.login.show')" class="text-gray-500 rounded-md hover:bg-primary-100/10 hover:text-primary-500 w-full flex transition-all items-center gap-4 py-4 px-2 group">
                         Entrar como profissional
                         <span class="hidden group-hover:block transition-all"><i class="pi pi-arrow-right"/></span>
                     </Link>

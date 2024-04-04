@@ -13,8 +13,8 @@ Route::get('teste', function () {
 })->name('teste');
 
 Route::prefix('professionals')->name('professionals.')->group(function () {
-//    Route::get('login', 'Professionals\AuthController@loginPage')->name('login');
     Route::get('login', [AuthController::class, 'loginPage'])->name('login.show');
+    Route::post('login', [AuthController::class, 'login'])->name('login.store');
     Route::get('register', [AuthController::class, 'registerPage'])->name('register.show');
     Route::post('register', [AuthController::class, 'register'])->name('register.store');
 });

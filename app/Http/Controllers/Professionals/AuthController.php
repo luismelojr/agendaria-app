@@ -11,7 +11,17 @@ class AuthController extends Controller
 {
     public function loginPage()
     {
+        return Inertia::render('Professionals/Auth/Login');
+    }
 
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        dd($request->all());
     }
 
     public function registerPage()
