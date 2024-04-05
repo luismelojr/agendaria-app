@@ -20,7 +20,6 @@
     ])
 
     const loading = ref(false)
-    const first = ref(props.services.current_page - 1)
 
     function loadItems(value) {
         router.get(route('services.index'), {
@@ -53,7 +52,7 @@
                 :loading="loading"
                 :totalRecords="services.total"
                 @page="onPage($event)"
-                :first="first"
+                :first="services.current_page"
             >
                 <Column field="id" header="ID" />
                 <Column field="name" header="Nome" />
