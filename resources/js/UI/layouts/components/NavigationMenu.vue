@@ -20,9 +20,9 @@ const items = ref([
     {
         label: 'Gerenciar Serviço',
         icon: 'pi pi-shopping-bag',
-        href: route('dashboard'),
-        routeActive: 'home.*',
-        active: isActivePage(['home'])
+        href: route('services.index'),
+        routeActive: 'services.*',
+        active: isActivePage(['services.*'])
     },
     {
         label: 'Gerenciar Horário de Atendimento',

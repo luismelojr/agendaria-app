@@ -28,6 +28,11 @@ class Service extends Model
         ];
     }
 
+    public function getPriceAttribute($value): float|int
+    {
+        return $value / 100;
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

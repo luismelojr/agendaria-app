@@ -3,6 +3,7 @@
 use App\Http\Controllers\Professionals\AuthController;
 use App\Http\Controllers\Professionals\DashboardController;
 use App\Http\Controllers\Professionals\HoursController;
+use App\Http\Controllers\Professionals\ServiceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -25,4 +26,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     // Hours
     Route::get('hours', [HoursController::class, 'show'])->name('hours.show');
     Route::put('hours', [HoursController::class, 'update'])->name('hours.update');
+
+    // Services
+    Route::resource('services', ServiceController::class);
 });
