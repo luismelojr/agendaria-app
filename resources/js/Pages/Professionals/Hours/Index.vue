@@ -118,6 +118,7 @@
 </script>
 
 <template>
+    <Head title="Gestão de Horários" />
     <div class="space-y-10 overflow-y-auto">
         <BoxTitle title="Gestão de Horários" :menuItems="menuItems" />
         <CardCustom title="Gereciar Horários" subtitle="Configure os horários de atendimento da sua agenda.">

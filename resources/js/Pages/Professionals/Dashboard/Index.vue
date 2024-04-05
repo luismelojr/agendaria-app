@@ -8,6 +8,7 @@
 </script>
 
 <template>
+    <Head title="Panel de Controle" />
     <div class="space-y-10 overflow-y-auto">
         <div class="space-y-2">
             <h1 class="text-gray-900 font-bold text-2xl">Dashboard</h1>
