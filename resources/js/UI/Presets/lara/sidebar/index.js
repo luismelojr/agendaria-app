@@ -46,7 +46,7 @@ export default {
         ]
     },
     title: {
-        class: ['font-bold text-lg']
+        class: ['text-sm text-gray-400']
     },
     icons: {
         class: ['flex items-center']

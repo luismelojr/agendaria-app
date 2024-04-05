@@ -21,7 +21,7 @@ const openMenu = ref(false)
             </Link>
         </nav>
         <Button @click="openMenu = true" class="flex md:hidden" size="small" outlined icon="pi pi-bars" aria-label="Open menu sidebar" type="button" />
-        <Sidebar v-model:visible="openMenu" position="right" :show-close-icon="false">
+        <Sidebar v-model:visible="openMenu" position="right" header="Agendaria">
             <ul class="flex flex-col w-full gap-2">
                 <li class="w-full">
                     <Link href="/" class="text-gray-500 rounded-md hover:bg-primary-100/10 hover:text-primary-500 w-full flex transition-all items-center gap-4 py-4 px-2 group">
@@ -30,7 +30,7 @@ const openMenu = ref(false)
                     </Link>
                 </li>
                 <li class="w-full">
-                    <Link :href="route('professionals.login.show')" class="text-gray-500 rounded-md hover:bg-primary-100/10 hover:text-primary-500 w-full flex transition-all items-center gap-4 py-4 px-2 group">
+                    <Link :href="route('login')" class="text-gray-500 rounded-md hover:bg-primary-100/10 hover:text-primary-500 w-full flex transition-all items-center gap-4 py-4 px-2 group">
                         Entrar como profissional
                         <span class="hidden group-hover:block transition-all"><i class="pi pi-arrow-right"/></span>
                     </Link>

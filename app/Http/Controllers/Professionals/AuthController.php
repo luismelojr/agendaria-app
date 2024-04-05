@@ -8,6 +8,7 @@ use App\Http\Requests\Professionals\RegisterRequest;
 use App\Models\User;
 use App\Services\Professionals\AuthService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class AuthController extends Controller
@@ -52,6 +53,17 @@ class AuthController extends Controller
         }
 
 
-        return redirect()->route('professionals.login.show')->toast('Conta criada com sucesso! Faça login para continuar.');
+        return redirect()->route('login')->toast('Conta criada com sucesso! Faça login para continuar.');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
     }
 }
