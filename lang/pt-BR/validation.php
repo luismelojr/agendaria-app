@@ -213,7 +213,21 @@ return [
         'modality' => 'modalidade',
         'category' => 'categoria',
         'blood_type' => 'tipo sanguíneo',
-        'birth_date' => 'data de nascimento'
+        'birth_date' => 'data de nascimento',
+        'monday_starts_at' => 'segunda-feira inicia',
+        'monday_ends_at' => 'segunda-feira termina',
+        'tuesday_starts_at' => 'terça-feira inicia',
+        'tuesday_ends_at' => 'terça-feira termina',
+        'wednesday_starts_at' => 'quarta-feira inicia',
+        'wednesday_ends_at' => 'quarta-feira termina',
+        'thursday_starts_at' => 'quinta-feira inicia',
+        'thursday_ends_at' => 'quinta-feira termina',
+        'friday_starts_at' => 'sexta-feira inicia',
+        'friday_ends_at' => 'sexta-feira termina',
+        'saturday_starts_at' => 'sábado inicia',
+        'saturday_ends_at' => 'sábado termina',
+        'sunday_starts_at' => 'domingo inicia',
+        'sunday_ends_at' => 'domingo termina',
     ],
 
 ];

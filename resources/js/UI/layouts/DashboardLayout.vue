@@ -4,6 +4,7 @@ import Logo from "@/modules/landpage/components/Logo/Logo.vue";
 import NavigationMenu from "@/UI/layouts/components/NavigationMenu.vue";
 import MenuUser from "@/UI/layouts/components/MenuUser.vue";
 import NavigationMenuMobile from "@/UI/layouts/components/NavigationMenuMobile.vue";
+import Toast from "@/UI/components/toasts/Toast.vue";
 
 
 </script>
@@ -28,6 +29,7 @@ import NavigationMenuMobile from "@/UI/layouts/components/NavigationMenuMobile.v
             <slot />
         </div>
     </div>
+    <Toast />
 </template>
 
 <style scoped>

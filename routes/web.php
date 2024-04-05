@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Professionals\AuthController;
 use App\Http\Controllers\Professionals\DashboardController;
+use App\Http\Controllers\Professionals\HoursController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -20,4 +21,8 @@ Route::middleware('guest')->prefix('professionals')->group(function () {
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
     Route::post('logout', [AuthController::class, 'logout'])->name('professionals.logout');
+
+    // Hours
+    Route::get('hours', [HoursController::class, 'show'])->name('hours.show');
+    Route::put('hours', [HoursController::class, 'update'])->name('hours.update');
 });
