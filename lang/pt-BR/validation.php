@@ -228,6 +228,9 @@ return [
         'saturday_ends_at' => 'sábado termina',
         'sunday_starts_at' => 'domingo inicia',
         'sunday_ends_at' => 'domingo termina',
+        'duration' => 'duração',
+        'price' => 'preço',
+        'time_extra' => 'tempo extra',
     ],
 
 ];
