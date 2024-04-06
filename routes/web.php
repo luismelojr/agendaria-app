@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Me\MeController;
 use App\Http\Controllers\Professionals\AuthController;
 use App\Http\Controllers\Professionals\DashboardController;
 use App\Http\Controllers\Professionals\HoursController;
@@ -30,3 +31,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     // Services
     Route::resource('services', ServiceController::class);
 });
+
+// Route ME
+Route::get('/me/{email}', MeController::class)->name('me.home');
+

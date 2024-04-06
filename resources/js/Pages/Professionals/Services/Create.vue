@@ -26,7 +26,7 @@ const form = useForm({
     description: '',
     duration: '',
     price: 0,
-    time_extra: '',
+    time_extra: 0,
 })
 
 function submit() {

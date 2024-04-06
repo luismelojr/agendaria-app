@@ -18,6 +18,12 @@ class AuthService
             DB::beginTransaction();
             $user = $this->model->create($data);
             $user->notify(new WelcomeProfessionalsNotification($user));
+            $user->config()->create([
+                'bio' => 'Olá, seja bem-vindo(a) ao meu perfil!',
+                'banner_image' => 'default',
+                'color_primary' => '#433BCE',
+                'color_secondary' => '#FFFFFF',
+            ]);
             DB::commit();
             return $user;
         } catch (\Throwable $th) {

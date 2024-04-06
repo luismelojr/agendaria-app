@@ -26,6 +26,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'date_of_birth',
+        'status'
     ];
 
     /**
@@ -48,7 +49,14 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'date_of_birth' => 'date',
+            'status' => 'boolean'
         ];
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
     }
 
     public function address(): HasOne

@@ -30,6 +30,13 @@ const items = ref([
         href: route('hours.show'),
         routeActive: 'hours.*',
         active: isActivePage(['hours.*'])
+    },
+    {
+        label: 'Tela de Agendamento',
+        icon: 'pi pi-desktop',
+        href: route('hours.show'),
+        routeActive: 'hours.*',
+        active: isActivePage(['hours.*'])
     }
 ]);
 
