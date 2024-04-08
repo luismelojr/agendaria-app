@@ -2,12 +2,15 @@
 
 namespace App\Bookings;
 
+use App\Models\Appointment;
 use App\Models\User;
 use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Spatie\Period\Boundaries;
 use Spatie\Period\Period;
 use Spatie\Period\PeriodCollection;
+use Spatie\Period\Precision;
 
 class ServiceSlotAvailability
 {
@@ -15,11 +18,13 @@ class ServiceSlotAvailability
     {
     }
 
-    public function forPeriod(Carbon $startsAt, Carbon $endsAt)
+    public function forPeriod(Carbon $startsAt, Carbon $endsAt): DateCollection
     {
         $range = (new SlotRangeGenerator($startsAt, $endsAt))->generate($this->service->duration);
 
         $periods = (new ScheduleAvailability($this->employee, $this->service))->forPeriod($startsAt, $endsAt);
+
+        $periods = $this->removeAppointments($periods, $this->employee);
 
         foreach ($periods as $period) {
             $this->addAvailableEmployeeForPeriod($range, $period, $this->employee);
@@ -29,6 +34,22 @@ class ServiceSlotAvailability
 
 
         return $range;
+    }
+
+    protected function removeAppointments(PeriodCollection $period, User $employee)
+    {
+        $employee->appointments->whereNull('cancelled_at')->each(function (Appointment $appointment) use (&$period) {
+            $period = $period->subtract(
+                Period::make(
+                    $appointment->starts_at->copy()->subMinutes($this->service->duration)->addMinute(),
+                    $appointment->ends_at,
+                    Precision::MINUTE(),
+                    Boundaries::EXCLUDE_ALL()
+                )
+            );
+        });
+
+        return $period;
     }
 
     protected function addAvailableEmployeeForPeriod(Collection $range, Period $period, User $employee)

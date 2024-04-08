@@ -20,7 +20,9 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
+        "@easepick/bundle": "^1.2.1",
         "@vueuse/core": "^10.9.0",
+        "pluralize": "^8.0.0",
         "primeicons": "^7.0.0",
         "primevue": "^3.50.0"
     }

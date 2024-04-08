@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('service_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('client_id')->constrained()->cascadeOnDelete();
             $table->dateTime('starts_at');
             $table->dateTime('ends_at');
             $table->dateTime('cancelled_at')->nullable();

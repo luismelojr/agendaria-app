@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Appointments\AppointmentController;
 use App\Http\Controllers\Me\MeController;
 use App\Http\Controllers\Professionals\AuthController;
 use App\Http\Controllers\Professionals\DashboardController;
@@ -33,5 +34,13 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 });
 
 // Route ME
-Route::get('/me/{email}', MeController::class)->name('me.home');
+Route::get('/me/{email}', [MeController::class, 'index'])->name('me.home');
+Route::get('/me/{email}/{service}', [MeController::class, 'service'])->name('me.home.service');
 
+// Route Clients Code
+
+Route::post('client/code', [\App\Http\Controllers\Client\ClientController::class, 'sendCode'])->name('client.code.send');
+Route::post('client/code/validation', [\App\Http\Controllers\Client\ClientController::class, 'validationCode'])->name('client.code.validation');
+
+// Route Appointments
+Route::post('appointments', [AppointmentController::class, 'store'])->name('appointments.store');

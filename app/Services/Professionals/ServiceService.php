@@ -13,7 +13,7 @@ class ServiceService
                 ->orWhere('description', 'like', "%$search%")
                 ->orWhere('price', 'like', "%$search%")
                 ->orWhere('duration', 'like', "%$search%");
-        })->paginate(3);
+        })->paginate(5);
     }
 
     public function create(array $data)
