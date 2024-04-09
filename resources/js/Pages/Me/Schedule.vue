@@ -245,9 +245,9 @@
                             <button
                                 @click="handleSendCode"
                                 type="button"
-                                :disabled="loading || !form.phone"
+                                :disabled="loading || !form.phone || phoneDisabled"
                                 class="text-sm h-10 transition-all text-slate-400 flex items-center gap-2 hover:text-primary-500 hover:border-primary-500 border py-2 rounded-md px-4"
-                                :class="loading || !form.phone ? 'cursor-not-allowed' : 'cursor-pointer'"
+                                :class="loading || !form.phone || phoneDisabled ? 'cursor-not-allowed' : 'cursor-pointer'"
                             >
                                 <i class="pi pi-envelope" v-if="!loading"/>
                                 <i class="pi pi-spinner animate-spin" v-else/>
@@ -268,14 +268,15 @@
                                 class="flex-1"
                                 v-model="code"
                                 aria-labelledby="code"
+                                :disabled="loadingCode || !form.phone || codeValidation"
                                 :invalid="!!codeErrors"
                                 style="height: 40px"
                             />
                             <button
                                 type="button"
-                                :disabled="loadingCode || !code || !form.phone"
+                                :disabled="loadingCode || !code || !form.phone || codeValidation"
                                 class="text-sm h-10 transition-all text-slate-400 flex items-center gap-2 hover:text-primary-500 hover:border-primary-500 border py-2 rounded-md px-4"
-                                :class="loadingCode || !code || !form.phone ? 'cursor-not-allowed' : 'cursor-pointer'"
+                                :class="loadingCode || !code || !form.phone || codeValidation ? 'cursor-not-allowed' : 'cursor-pointer'"
                                 @click="handleValidationCode"
                             >
                                 <i class="pi pi-check" v-if="!loadingCode"/>
@@ -291,7 +292,15 @@
 
                 <div class="flex flex-col gap-2">
                     <label for="name">Nome</label>
-                    <InputText id="name" type="name" v-model="form.name" aria-describedby="name-help" size="small" :invalid="!!form.errors.name"/>
+                    <InputText
+                        id="name"
+                        type="name"
+                        v-model="form.name"
+                        aria-describedby="name-help"
+                        size="small"
+                        :invalid="!!form.errors.name"
+                        :disabled="!codeValidation"
+                    />
                     <small id="name-help" class="text-red-600" v-if="form.errors.name">{{form.errors.name}}</small>
                 </div>
                 <div class="flex justify-end">
