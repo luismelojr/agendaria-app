@@ -34,14 +34,18 @@
           })
           .catch(error => console.error('Ocorreu um erro:', error));
   }
+
+  const imageUrl = computed(() => {
+      return props.user.config.banner_image === 'default' ? 'http://agendaria.test/assets/images/banner-me.png' : props.user.config.banner_image;
+  })
 </script>
 
 <template>
 <div class="flex flex-col">
     <div class="w-full relative h-[300px]">
-        <img :src="user.config.banner_image" alt="" class="w-full h-full rounded-md">
+        <img :src="imageUrl" alt="" class="w-full h-full rounded-md">
         <div class="absolute left-[50%] -bottom-14 transform translate-x-[-50%]">
-            <Avatar icon="pi pi-user" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-if="user.image_url"/>
+            <Avatar icon="pi pi-user" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-if="!user.image_url"/>
             <Avatar image="https://github.com/luismelojr.png" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-else/>
         </div>
     </div>

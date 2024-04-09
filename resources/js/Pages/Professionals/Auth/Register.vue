@@ -106,7 +106,7 @@
             </div>
             <Button type="submit" label="Cadastrar" variant="primary" class="w-full mt-10" :loading="form.processing"/>
             <div class="mt-4 text-center">
-                <Link :href="route('professionals.login.show')" class="text-sm text-primary-300 hover:text-primary-500">Já possui uma conta? Faça login</Link>
+                <Link :href="route('login')" class="text-sm text-primary-300 hover:text-primary-500">Já possui uma conta? Faça login</Link>
             </div>
         </form>
     </div>
