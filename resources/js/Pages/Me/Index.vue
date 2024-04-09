@@ -65,7 +65,7 @@
                 </h2>
             </div>
             <div class="p-2">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" v-if="user.services.length > 0">
                     <div v-for="service in user.services" :key="service.id" class="border flex justify-between flex-col p-4 rounded-md hover:border-primary-500">
                         <div>
                             <i class="pi pi-shopping-bag text-[20px]" :style="`color: ${user.config.color_primary}` "/>
@@ -85,6 +85,10 @@
                         </div>
                         <Link :href="route('me.home.service', {'email': user.email, 'service': service.id})" class="mt-4 px-4 py-2 w-full flex justify-center rounded-md" :style="`color: ${user.config.color_secondary}; background: ${user.config.color_primary}` ">Agendar</Link>
                     </div>
+                </div>
+                <div v-else class="flex items-center justify-center flex-col gap-4 py-20">
+                    <i class="pi pi-shopping-bag text-[40px]" :style="`color: ${user.config.color_primary}` "/>
+                    <p class="text-slate-400 text-lg">Nenhum serviço cadastrado.</p>
                 </div>
             </div>
         </div>

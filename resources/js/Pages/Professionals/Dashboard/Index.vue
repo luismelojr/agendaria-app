@@ -5,6 +5,12 @@
     defineOptions({
         layout: DashboardLayout
     })
+
+    defineProps({
+        serviceCount: Number,
+        appointmentTotalCount: Number,
+        appointmentTodayCount: Number
+    })
 </script>
 
 <template>
@@ -15,9 +21,9 @@
             <p class="text-sm text-gray-600">Bem-vindo ao seu painel de controle.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Stat title="Total de Agendamentos" value="3" icon="pi pi-calendar" :href="route('dashboard')"/>
-            <Stat title="Total de Agendamentos" value="3" icon="pi pi-calendar" :href="route('dashboard')"/>
-            <Stat title="Total de Agendamentos" value="3" icon="pi pi-calendar" :href="route('dashboard')"/>
+            <Stat title="Total de Agendamentos Hoje" :value="appointmentTodayCount" icon="pi pi-calendar" :href="route('dashboard')"/>
+            <Stat title="Total de Serviços" :value="serviceCount" icon="pi pi-shopping-bag" :href="route('services.index')"/>
+            <Stat title="Total de Agendamentos Realizados" :value="appointmentTotalCount" icon="pi pi-calendar" :href="route('dashboard')"/>
         </div>
     </div>
 </template>

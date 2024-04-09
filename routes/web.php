@@ -3,6 +3,7 @@
 use App\Http\Controllers\Appointments\AppointmentController;
 use App\Http\Controllers\Me\MeController;
 use App\Http\Controllers\Professionals\AuthController;
+use App\Http\Controllers\Professionals\ConfigController;
 use App\Http\Controllers\Professionals\DashboardController;
 use App\Http\Controllers\Professionals\HoursController;
 use App\Http\Controllers\Professionals\ServiceController;
@@ -31,6 +32,11 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     // Services
     Route::resource('services', ServiceController::class);
+
+    // Config
+    Route::get('config', [ConfigController::class, 'show'])->name('config.show');
+    Route::put('config', [ConfigController::class, 'update'])->name('config.update');
+    Route::post('config/banner', [ConfigController::class, 'updateBanner'])->name('config.update.banner');
 });
 
 // Route ME

@@ -10,6 +10,11 @@ class DashboardController extends Controller
 {
     public function __invoke()
     {
-        return Inertia::render('Professionals/Dashboard/Index');
+        $user = auth()->user();
+        return Inertia::render('Professionals/Dashboard/Index', [
+            'serviceCount' => $user->services->count(),
+            'appointmentTotalCount' => $user->appointments->count(),
+            'appointmentTodayCount' => $user->appointments->where('date', now()->format('Y-m-d'))->count(),
+        ]);
     }
 }

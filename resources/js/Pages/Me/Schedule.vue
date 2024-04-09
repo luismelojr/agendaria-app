@@ -147,7 +147,6 @@
 </script>
 
 <template>
-    {{form.errors}}
     <div class="flex flex-col">
         <div class="w-full relative h-[300px]">
             <img :src="user.config.banner_image" alt="" class="w-full h-full rounded-md">

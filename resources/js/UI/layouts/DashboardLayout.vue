@@ -10,7 +10,7 @@ import Toast from "@/UI/components/toasts/Toast.vue";
 </script>
 
 <template>
-    <div class="flex flex-col h-screen gap-10 bg-[#F3F4F6]">
+    <div class="flex flex-col h-full pb-10 gap-10 bg-[#F3F4F6]">
         <div class="w-full py-4 border-b bg-white">
             <div class="container-new flex items-center gap-10">
                 <Link :href="route('dashboard')">
