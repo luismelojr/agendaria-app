@@ -125,10 +125,10 @@
                 phone: form.phone.replace(/\D/g, ''),
                 code: code.value
             })
-
             codeErrors.value = ''
             codeValidation.value = true
             form.client_id = response.data.client.id
+            form.name = response.data.client.name
             toast.add({severity: 'success', summary: 'Sucesso', detail: response.data.message, life: 5000})
         } catch (e) {
             codeErrors.value = e.response.data.message
@@ -149,7 +149,7 @@
 <template>
     <div class="flex flex-col">
         <div class="w-full relative h-[300px]">
-            <img :src="user.config.banner_image" alt="" class="w-full h-full rounded-md">
+            <img :src="user.config.banner_image" alt="" class="w-full h-full rounded-md object-cover"/>
             <div class="absolute left-[50%] -bottom-14 transform translate-x-[-50%]">
                 <Avatar icon="pi pi-user" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-if="user.image_url"/>
                 <Avatar image="https://github.com/luismelojr.png" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-else/>
@@ -202,6 +202,23 @@
                     Agendar horário
                 </h2>
             </div>
+            <div class="rounded-md bg-red-50 p-4 mt-2" v-if="form.errors.datetime">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-red-800">Atenção ao agendar</h3>
+                        <div class="mt-2 text-sm text-red-700">
+                            <ul role="list" class="list-disc space-y-1 pl-5">
+                                <li>{{form.errors.datetime}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="py-2 px-0 md:py-4 md:px-2 flex flex-col md:flex-row gap-4 items-start">
                 <div ref="easepickerRef" class="hidden"/>
                 <div class="grid grid-cols-3 md:grid-cols-5 gap-8">
@@ -230,7 +247,7 @@
                 <div class="flex gap-2 items-end">
                     <div class="flex flex-col gap-2 flex-1">
                         <label for="phone" >Telefone</label>
-                        <div class="flex gap-2 items-center">
+                        <div class="flex flex-wrap gap-2 items-center">
                             <InputMask
                                 id="phone"
                                 type="text"
@@ -260,7 +277,7 @@
                 <div class="flex gap-2 items-end">
                     <div class="flex flex-col gap-2 flex-1">
                         <label for="phone" >Código de validação</label>
-                        <div class="flex items-center gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
                             <InputMask
                                 id="code"
                                 type="text"

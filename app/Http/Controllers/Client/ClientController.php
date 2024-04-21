@@ -18,11 +18,10 @@ class ClientController extends Controller
            'phone' => 'required|numeric|digits:11'
         ]);
 
-        $client = $this->service->createCode($request->phone);
+        $this->service->createCode($request->phone);
 
         return response()->json([
             'message' => 'Código enviado com sucesso!',
-            'client' => $client
         ]);
     }
 
@@ -43,7 +42,10 @@ class ClientController extends Controller
         return response()->json([
             'message' => 'Código validado com sucesso!',
             'error' => false,
-            'client' => $response
+            'client' => [
+                'id' => $response->id,
+                'name' => $response->name,
+            ]
         ]);
     }
 }

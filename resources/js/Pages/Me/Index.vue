@@ -43,7 +43,7 @@
 <template>
 <div class="flex flex-col">
     <div class="w-full relative h-[300px]">
-        <img :src="imageUrl" alt="" class="w-full h-full rounded-md">
+        <img :src="imageUrl" alt="" class="w-full h-full rounded-md object-cover">
         <div class="absolute left-[50%] -bottom-14 transform translate-x-[-50%]">
             <Avatar icon="pi pi-user" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-if="!user.image_url"/>
             <Avatar image="https://github.com/luismelojr.png" class="w-[120px] h-[120px] text-[40px]" shape="circle" v-else/>
