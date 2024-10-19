@@ -15,10 +15,17 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Luis Henrique',
             'email' => 'junimhs10@gmail.com',
             'password' => bcrypt('junior'),
+        ]);
+
+        $user->config()->create([
+            'bio' => 'Olá, seja bem-vindo(a) ao meu perfil!',
+            'banner_image' => 'default',
+            'color_primary' => '#433BCE',
+            'color_secondary' => '#FFFFFF',
         ]);
     }
 }
