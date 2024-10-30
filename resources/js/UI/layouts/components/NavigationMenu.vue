@@ -25,8 +25,16 @@ const items = ref([
         active: isActivePage(['services.*'])
     },
     {
-        label: 'Gerenciar Horário de Atendimento',
+        label: 'Adicionar Horário de Ausência',
         icon: 'pi pi-clock',
+        href: route('exclusions.index'),
+        routeActive: 'exclusions.*',
+        active: isActivePage(['exclusions.*'])
+    },
+    // Menu onde irei cadastrar horario que estarei offline
+    {
+        label: 'Gerenciar Horário de Atendimento',
+        icon: 'pi pi-calendar-clock',
         href: route('hours.show'),
         routeActive: 'hours.*',
         active: isActivePage(['hours.*'])

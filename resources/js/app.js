@@ -10,6 +10,7 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+import helpers from "@/Concepts/helpers/index.js";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -26,6 +27,7 @@ createInertiaApp({
             })
             .use(ToastService)
             .use(ConfirmationService)
+            .provide('$helper', helpers)
             .mount(el);
     },
     progress: {

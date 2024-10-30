@@ -24,6 +24,7 @@
         "@vueuse/core": "^10.9.0",
         "pluralize": "^8.0.0",
         "primeicons": "^7.0.0",
-        "primevue": "^3.50.0"
+        "primevue": "^3.50.0",
+        "query-string": "^9.1.1"
     }
 }

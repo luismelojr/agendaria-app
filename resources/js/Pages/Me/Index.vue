@@ -36,7 +36,7 @@
   }
 
   const imageUrl = computed(() => {
-      return props.user.config.banner_image === 'default' ? 'http://agendaria.test/assets/images/banner-me.png' : props.user.config.banner_image;
+      return props.user.config.banner_image === 'default' ? 'http://agendariapro.test/assets/images/banner-me.png' : props.user.config.banner_image;
   })
 </script>
 

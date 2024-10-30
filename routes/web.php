@@ -6,6 +6,7 @@ use App\Http\Controllers\Professionals\AuthController;
 use App\Http\Controllers\Professionals\ConfigController;
 use App\Http\Controllers\Professionals\DashboardController;
 use App\Http\Controllers\Professionals\HoursController;
+use App\Http\Controllers\Professionals\HoursExclusionController;
 use App\Http\Controllers\Professionals\ServiceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,6 +30,9 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     // Hours
     Route::get('hours', [HoursController::class, 'show'])->name('hours.show');
     Route::put('hours', [HoursController::class, 'update'])->name('hours.update');
+
+    // Hours Exclusions
+    Route::get('hours-exclusions', [HoursExclusionController::class, 'index'])->name('exclusions.index');
 
     // Services
     Route::resource('services', ServiceController::class);

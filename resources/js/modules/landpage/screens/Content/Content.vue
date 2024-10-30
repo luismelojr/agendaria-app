@@ -7,7 +7,7 @@ import {Link} from '@inertiajs/vue3'
     <section class="mt-20 space-y-20 container-new">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
             <div class="w-full border shadow">
-                <img src="http://agendaria.test/assets/images/image-hours.png" alt="Product screenshot" class="w-full rounded-xl">
+                <img src="http://agendariapro.test/assets/images/image-hours.png" alt="Product screenshot" class="w-full rounded-xl">
             </div>
             <div class="flex flex-col gap-2">
                 <h2 class="text-base font-semibold leading-7 text-indigo-600">Cadastre seus serviços</h2>
